@@ -1,0 +1,30 @@
+class Big {
+  PVector location, speed;
+  float size;
+
+  Big(float x, float y) {
+    size = 2;
+    location = new PVector(0, 0);
+    speed = new PVector(0, 2);
+    location.x = x;
+    location.y = y;
+  }
+
+
+
+
+  void display() {
+    noStroke();
+    fill(255);
+    ellipse(location.x, location.y, size, size*4);
+  }
+
+
+  void move() {
+    location.y += speed.y;
+  }
+
+  void collision() {
+  }
+}
+
