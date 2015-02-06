@@ -1,16 +1,179 @@
+<!doctype html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Intro</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="processing.js"></script>
+    </head>
+    <body>
+      <div>
+        <h1>Gentry Demchak</h1>
+        <div id="content">
+          <h2>This is some interesting information</h2>
+        </div>
+      </div id="processing">
+        <script type="text/processing">
+            Big[] ParticlesBig = new Big[10];
+            Medium[] ParticlesMedium = new Medium[20];
+            Small[] ParticlesSmall = new Small[20];
 
-	<head>
-		<title>Gentry Demchak</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="slider.js"></script>
-	</head>
-
-	<body>
-		<canvas>
-
-		</canvas>
-	</body>
 
 
+            void setup() {
+              size(window.innerWidth, window.innerHeight);
+              
+              for (int i = 0; i < ParticlesBig.length; i++) {
+                ParticlesBig[i] = new Big(random(0, width), random(0, height));
+              }
+              for (int i = 0; i < ParticlesMedium.length; i++) {
+                ParticlesMedium[i] = new Medium(random(0, width), random(0, height));
+              }
+                for (int i = 0; i < ParticlesSmall.length; i++) {
+                ParticlesSmall[i] = new Small(random(0, width), random(0, height));
+              }
+            }
+
+
+            void draw() {
+              fill(0,0,0,10);
+              rect(0,0,width,height);
+              universe();
+            }
+
+
+            void universe() {
+              for (int i=0; i < ParticlesBig.length; i++) {
+                ParticlesBig[i].display();
+                ParticlesBig[i].move();
+                ParticlesBig[i].collision();
+              }
+              for (int i=0; i < ParticlesMedium.length; i++) {
+                ParticlesMedium[i].display();
+                ParticlesMedium[i].move();
+                ParticlesMedium[i].collision();
+              }
+              for (int i=0; i < ParticlesSmall.length; i++) {
+                ParticlesSmall[i].display();
+                ParticlesSmall[i].move();
+                ParticlesSmall[i].collision();
+              }
+            }
+            class Big {
+              PVector location, speed;
+              float size;
+              float xoff = 0.0;
+
+              Big(float x, float y) {
+                size = 2;
+                location = new PVector(0, 0);
+                speed = new PVector(0, 8);
+                location.x = x;
+                location.y = y;
+              }
+
+
+
+
+              void display() {
+                noStroke();
+                xoff = xoff + .01;
+                float n = noise(xoff) * 255;
+                fill(n);
+                ellipse(location.x, location.y, size*4, size*8);
+              }
+
+
+              void move() {
+                location.y += speed.y;
+              }
+
+              void collision() {
+                if (location.y > height) {
+                 location.y = 0; 
+                 location.x = random(0,width);
+                }
+              }
+            }
+
+            class Medium {
+              PVector location, speed;
+              float size;
+
+              Medium(float x, float y) {
+                size = 2;
+                location = new PVector(0, 0);
+                speed = new PVector(0, 1);
+                location.x = x;
+                location.y = y;
+              }
+
+
+
+
+              void display() {
+                noStroke();
+                fill(255);
+                ellipse(location.x, location.y, size, size*4);
+              }
+
+
+              void move() {
+                location.y += speed.y;
+              }
+
+              void collision() {
+                if (location.y > height) {
+                 location.y = 0; 
+                 location.x = random(0,width);
+                }
+              }
+              
+              
+            }
+
+            class Small {
+               PVector location, speed;
+              float size;
+
+              Small(float x, float y) {
+                size = 2;
+                location = new PVector(0, 0);
+                speed = new PVector(0, .1);
+                location.x = x;
+                location.y = y;
+              }
+
+
+
+
+              void display() {
+                noStroke();
+                fill(255);
+                ellipse(location.x, location.y, size, size);
+              }
+
+
+              void move() {
+                location.y += speed.y;
+              }
+
+              void collision() {
+                if (location.y > height) {
+                 location.y = 0; 
+                 location.x = random(0,width);
+                }
+              }
+              
+              
+            }
+            
+        </script>
+      <canvas></canvas>
+
+        
+    </body>
+    <footer>
+        <p>Created by Gentry Demchak 2015</p>
+    </footer>
 </html>

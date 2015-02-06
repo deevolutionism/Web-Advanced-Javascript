@@ -1,0 +1,25 @@
+body {
+font-family: Helvetica;
+	padding top: 20px;
+	padding bottom: 20px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	border: 1px solid black;
+	color: white;
+	background-color: black;
+	-webkit-appearance: none; 
+}
+#processing {
+}
+
+#content {
+	position: fixed;
+	width: 400px;
+	height:300px;
+	padding: 20px;
+	margin: 50px auto;
+	left: 0px;
+	right: 0px;
+	background-color: rgba(100,100,100,.5);
+}
