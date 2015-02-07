@@ -15,40 +15,60 @@ var buttonThreeClick = document.getElementById('button-3');
 }
 
 function buttonOneClicked() {
-    buttonOneStatus = true;
-    buttonTwoStatus = false;
-    buttonThreeStatus = false;
-    document.getElementById("button-1").setAttribute('id',"buttonOneActive");
-    document.getElementById("button-2").setAttribute('id',"button-2");
-    document.getElementById("button-3").setAttribute('id',"button-3");
-    document.getElementById("buttonTwoActive").setAttribute('id','button-2');
-    document.getElementById("buttonThreeActive").setAttribute('id','button-3');
+  
+
+if (buttonOneStatus == false) {
+        document.getElementById('button-1').setAttribute('id', 'buttonOneActive');
+        
+        if (buttonTwoStatus == true) {
+            document.getElementById('buttonTwoActive').setAttribute('id', 'button-2');
+        }
+        if (buttonThreeStatus == true) {
+            document.getElementById('buttonThreeActive').setAttribute('id', 'button-3');
+        }
+        
+        buttonOneStatus = true;
+        buttonTwoStatus = false;
+        buttonThreeStatus = false;
+    }
     
     changePicture()
 }
 function buttonTwoClicked() {
-    buttonOneStatus = false;
-    buttonTwoStatus = true;
-    buttonThreeStatus = false;
-    document.getElementById("button-1").setAttribute('id',"button-1")
-    document.getElementById("button-2").setAttribute('id',"buttonTwoActive")
-    document.getElementById("button-3").setAttribute('id',"button-3")
-    document.getElementById("buttonOneActive").setAttribute('id','button-1');
-    document.getElementById("buttonThreeActive").setAttribute('id','button-3');
 
+if (buttonTwoStatus == false) {
+        document.getElementById('button-2').setAttribute('id', 'buttonTwoActive');
+        
+        if (buttonOneStatus == true) {
+            document.getElementById('buttonOneActive').setAttribute('id', 'button-1');
+        }
+        if (buttonThreeStatus == true) {
+            document.getElementById('buttonThreeActive').setAttribute('id', 'button-3');
+        }
+        
+        buttonOneStatus = false;
+        buttonTwoStatus = true;
+        buttonThreeStatus = false;
+    }
     changePicture()
 }
 
 function buttonThreeClicked() {
-    buttonOneStatus = false;
-    buttonTwoStatus = false;
-    buttonThreeStatus = true;
-    document.getElementById("button-1").setAttribute('id',"button-1")
-    document.getElementById("button-2").setAttribute('id',"button-2")
-    document.getElementById("button-3").setAttribute('id',"buttonThreeActive")
-    document.getElementById("buttonOneActive").setAttribute('id','button-1');
-    document.getElementById("buttonTwoActive").setAttribute('id','button-2');
 
+if (buttonThreeStatus == false) {
+        document.getElementById('button-3').setAttribute('id', 'buttonThreeActive');
+        
+        if (buttonOneStatus == true) {
+            document.getElementById('buttonOneActive').setAttribute('id', 'button-1');
+        }
+        if (buttonTwoStatus == true) {
+            document.getElementById('buttonTwoActive').setAttribute('id', 'button-2');
+        }
+        
+        buttonOneStatus = false;
+        buttonTwoStatus = false;
+        buttonThreeStatus = true;
+    }
     changePicture()
     
 }
