@@ -1,0 +1,101 @@
+.container{
+    width:800px;
+    height:400px;
+    padding:20px;
+    border:1px solid gray;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    background: black; 
+}
+.image-slider-wrapper{
+    overflow: hidden;
+}
+#image-slider{
+    position: relative;
+    height: 280px;
+    padding:0;
+}
+#image-slider li{
+    max-width: 100%;
+    float:left;
+    list-style: none;
+}
+
+#buttons {
+    display: inline-block;
+    width: 50px;
+    background-color:green;
+}
+
+li {
+    position:fixed;
+}
+#button-1 {
+    cursor:pointer;
+    display:inline-block;
+    background-color:grey;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+}
+#button-2 {
+    cursor:pointer;
+    display:inline-block;
+    background-color:grey;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+
+}
+#button-3 {
+    width:5px;
+    height
+    cursor:pointer;
+    display: inline-block;
+    background-color:grey;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+
+}
+
+#buttonOneActive {
+    cursor:pointer;
+    display: inline-block;
+    background-color:red;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+
+}
+#buttonTwoActive {
+    cursor:pointer;
+    display: inline-block;
+    background-color:red;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+
+}
+#buttonThreeActive {
+    cursor:pointer;
+    display: inline-block;   
+    background-color:red;
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+
+}
+#image-1 {
+    z-index:1;
+}
+#image-2 {
+    z-index:1;
+}
+#image-3 {
+    z-index:1;
+}
+span {
+    margin: 0 auto; 
+}
