@@ -1,0 +1,48 @@
+html {
+	font-family: Helvetica;
+	background-color: lightgrey;
+	margin: 0 auto;
+}
+
+body {
+	margin: 0 auto;
+	font-size: 2.0rem;
+}
+#headerImage {
+
+}
+
+#bio {
+	margin: 50px 0px;
+	padding:10px;
+	float:left;
+	width: 300px;
+	background-color:white;
+
+}
+#postContainer {
+	display:inline-block;
+	float:right;
+}
+.post {
+	width:600px;
+	margin: 50px 50px;
+	padding:20px;
+	background-color: grey;
+
+}
+
+#propic {
+    width:256px; /* you can use % */
+    height: auto;
+}
+
+#topimage {
+	width:100%;
+	height:100%;
+}
+
+#americansniper {
+	width:500px;
+	height:auto;
+}
