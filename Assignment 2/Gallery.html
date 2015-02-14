@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Favorite Animal - Home</title>
+	<title>Favorite Animal - Gallery</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="processing.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
 </head>
 	<body>
-		<header>
-            <div id="menuContainer">
-              <h1>The Diabolical Overlord of all Animals</h1>
-            
-              <ul id="menu">
-              	<li><a href="Home.html">Home</a></li>
-              	<li><a href="Gallery.html">Gallery</a></li>
-              	<li><a href="About.html">About</a></li>
-              </ul>
-            </div>
-          
-
-                <script type="text/processing" data-processing-target="processing-canvas">
-				            /* @pjs preload="NyanCat.png; */
+	<header>
+		<div id="menuContainer">
+		<h1>The Diabolical Overlord of all Animals</h1>
+	    <ul id="menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+			<li><a href="About.html">About</a></li>
+        </ul>
+        </div>
+        <script type="text/processing" data-processing-target="processing-canvas">
+				    /* @pjs preload="NyanCat.png; */
                    
                     float xoff = 0.0;
                     float yoff = 0.0;
@@ -102,15 +99,25 @@
                     
                 </script>
          <canvas id="processing-canvas"></canvas>
+	</header>
 
-        </header>
+	<div id="container">
+		<h2>Cats Everywhere</h2>
+		<ul id="gallery">
+			<li><img src="http://imgur.com/5NddEgr.jpg"></li>
+			<li><img src="http://imgur.com/Tgn628s.jpg"></li>
+			<li><img src="http://imgur.com/FlVGdxt.jpg"></li>
+			<li><img src="http://imgur.com/AsHXJLn.jpg"></li>
+			<li><img src="http://imgur.com/qM7PKZb.jpg"></li>
+			<li><img src="http://imgur.com/EMVRpuH.jpg"></li>
+			<li><img src=""></li>
+			<li><img src=""></li>
+			<li><img src=""></li>
+			<li><img src=""></li>
+		</ul>			
+	</div>
 
-		<div id="container">
-			<h2>The Cat</h2>
-			<p>The cat is a powerful and sly animal with dubious intentions. Their fat and furry exterior disguises them as innocent little animals. Their camoflauge is arguable the most important characteristic because it allows them to backstab you at any given moment. Humans
-			subjegate themselves to this animal because if we didn't, they would threaten the entire human power structure, toppling governments, setting off nukes, and inflicting pain all over
-			the globe. And the best part? They can do it all while sleeping. Bow down.</p>		
-		</div>
 
+		
 	</body>
 </html>
