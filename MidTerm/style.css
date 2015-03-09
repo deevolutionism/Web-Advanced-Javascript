@@ -1,0 +1,46 @@
+
+.nav {
+	width:10%;
+	background-color: #eee;
+	display:inline-block;
+	float:left;
+}
+
+.master-container {
+	position:fixed;
+}
+
+.filler {
+	width:100%;
+	padding-top:1000%;
+}
+
+.container {
+	width:90%;
+	overflow:hidden;
+	display:inline-block;
+	position:relative;
+	-webkit-perspective: 800;
+	transform-style: preserve-3d;
+}
+
+.container img {
+	width:100%;
+	height:auto;
+}
+
+.container h3 {
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	background-color: #eee;
+	padding: 5%;
+}
+
+a.test {
+	font-weight: bold;
+}
+
+img {
+	transform: scale(.75);
+}
