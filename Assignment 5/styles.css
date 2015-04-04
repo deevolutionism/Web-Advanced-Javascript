@@ -1,0 +1,54 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.container-pong {
+	width:100%;
+	height:500px;
+	background-color: #000;
+	position:relative;
+}
+
+.border {
+	width: 50%;
+	height:500px;
+	border-right: 4px dashed #fff;
+}
+
+.ball {
+	background-color: #fff;
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+	position: absolute;
+}
+
+.p1-score-text {
+	width:200px;
+	margin:0px;
+	display:inline-block;
+
+}
+
+.p2-score-text {
+  width: 200px;
+  display: inline-block;
+  float: right;
+
+}
+
+.paddle-player1 {
+	background-color: #fff;
+	width:10px;
+	height: 100px;
+	position:absolute;
+	left: 5%;
+}
+
+.paddle-player2 {
+	background-color: #fff;
+	width:10px;
+	height: 100px;
+	position:absolute;
+	left: 95%;
+}
