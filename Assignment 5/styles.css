@@ -16,7 +16,7 @@
 }
 
 .ball {
-	background-color: #fff;
+	background-color: #ff0000;
 	height: 50px;
 	width: 50px;
 	border-radius: 50px;
@@ -42,7 +42,7 @@
 	width:10px;
 	height: 100px;
 	position:absolute;
-	left: 5%;
+	left: 99%
 }
 
 .paddle-player2 {
@@ -50,5 +50,5 @@
 	width:10px;
 	height: 100px;
 	position:absolute;
-	left: 95%;
+	left: 0%;
 }
