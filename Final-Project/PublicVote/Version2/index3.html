@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test Arduino</title>
+        <link rel="stylesheet" type="text/css" href="styles3.css">
+        <script src="processing.js"></script>
+        <script src="socket.io.js"></script>
+        <script>
+            var socket = io.connect();
+            
+            //keep track of votes on front end
+            var votes1 = 0; 
+            var votes2 = 0; 
+            var voteTotal = 0; 
+            
+
+
+
+            var votesProcess1 = function(data){ //activated when voteTally1 socket recieves data from the server. The data passed through voteTally1 is placed in 'data'
+                document.getElementById('voteDisplay1').setAttribute('height', data);
+                    votes1 = data; 
+                    voteTotal = votes1 + votes2;
+                  
+            }
+            
+
+            var votesProcess2 = function(data){
+                document.getElementById('voteDisplay2').setAttribute('height', data);
+                    votes2 = data; 
+                    voteTotal = votes1 + votes2;
+                        
+            }
+
+            var on = function(data){
+                document.getElementById('voteTally1').setAttribute('width',data);
+            }
+
+            socket.on('voteTally1', votesProcess1); //client recieves data from voteTally1, passes the data through voteProcess1 variable.
+            
+            socket.on('voteTally2', votesProcess2);
+            
+        </script>
+ 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    <body class='off'>
+        <header class = "header">
+            <h1>Public Voting System</h1>
+            <h3>A fun and spontaneous way of assessing the public.</h3>
+            <p>Public Vote is a Parsons Design and Technology project. The purpose of this project
+            is to collect information about the population in different areas by means of an
+            extermely simple and fun physical voting system. The project is comprised of two parts. The first part is this website where users may input any two things they would like the public to vote on. The second part of the project is the physical voting mechanism. Two buttons, Agree and Disagree, along with a scoreboard where the two things being compared will be displayed to the voters. The voting mechanism is deployed in a transient space, idealy in areas where people have to wait.</p>
+            <h3>How it works</h3>
+            <ul>
+                <li>Think of two things you would like to be compared. Are apples better than oranges? Or is StarWars better than StarTrek? Anything goes. ANYTHING.</li>
+                <li>Fill in the form below and submit! Your submission will be added to a que.</li>
+                <li>When a comparison has reached 99 votes, the next item in the que will be sent to the voting score board and voting will commense!</li>
+                <li>Check the website to see the results update live as people vote. You can also view the history of past votes.</li>
+            </ul>
+        </header>
+        <div class = "input">
+            <form class="thing-form" name="contactForm" id="contactForm"/>
+                <h3>What two things would you like to be compared?</h3>
+                <label for="thing1"></label>
+                
+                <input class="option-1" name="thing1" type="text" autocomplete="off" value="Thing 1" onfocus="if(this.value == 'Thing 1'){this.value = '';}" onblur="if(this.value == ''){this.value = 'Thing 1';}" />
+                
+                <h1>is better than</h1>
+
+                <label for="thing2"></label>
+                
+                <input class="option-2" name="thing2" type="text" autocomplete="off" value="Thing 2" onfocus="if(this.value == 'Thing 2'){this.value = '';}" onblur="if(this.value == ''){this.value = 'Thing 2';}" />
+               
+                <input class="thing-submit" type="submit" name="submit" value="Submit"/>
+            </form>
+        </div>
+
+        <div class = "que">
+            <h2>QUE</h2>
+            <div class = "submissions">
+
+            </div>
+        </div>
+   
+        <div class = 'main'>
+            <div id = "barGraph">
+                <p>Graph</p>
+                <svg id="svgInner" xmlns="http://www.w3.org/2000/svg" 
+                version="1.1" width = "80%" height = "500" viewBox="0 0 100% 100%" xml:space="preserve">
+                  <rect id="voteDisplay1" x="0px" y="0" width="50%" height="1" fill="green" fill-opacity="0.5"/>
+                  <rect id="voteDisplay2" x="50%" y="0" width="50%" height="1" fill="red" fill-opacity="0.5"/>
+                </svg>    
+            </div>
+            <div class = "yes">
+                <h3>%YES</h3>
+            </div> 
+            <div class = "no">
+                <h3>%NO</h3>
+            </div>  
+        </div>
+      
+        
+        <script src="main.js"></script>
+
+        <footer>
+            <h2>Made by Gentry Demchak 2015</h2>
+            <p>Technology used: Arduino, Javascript, Johnny-Five, Socket.io, Firmata</p>
+            <p>Special thanks to rwaldron, creator of the Johnny-Five module</p>
+        </footer>
+
+    </body>
+    
+</html>

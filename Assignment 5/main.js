@@ -28,7 +28,7 @@ var width;
 update();
 
 function update() {
-	requestAnimationFrame(update);
+	requestAnimationFrame(update,30);
 	move();
 	boundaries();
 	score();
@@ -157,7 +157,7 @@ function paddles() {
 
 
 //debugging and show mouse position
-
+//http://stackoverflow.com/questions/12202118/show-mouse-x-and-y-position-with-javascript
 var IE = document.all?true:false
 
 

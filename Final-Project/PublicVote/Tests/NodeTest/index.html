@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Node Server</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src = "socket.io.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			var socket = io.connect();
+            
+            //keep track of votes on front end
+            var votes1 = 0; 
+            var votes2 = 0; 
+            var voteTotal = 0; 
+
+
+            var votesProcess1 = function(data){ //activated when voteTally1 socket recieves data from the server. The data passed through voteTally1 is placed in 'data'
+                document.getElementById('voteDisplay1').setAttribute('height', data);
+                    votes1 = data; 
+                    voteTotal = votes1 + votes2;
+                    winLose()           
+            }
+       
+
+            var votesProcess2 = function(data){
+                document.getElementById('voteDisplay2').setAttribute('height', data);
+                    votes2 = data; 
+                    voteTotal = votes1 + votes2;
+                    winLose()           
+            }
+
+            var on = function(data){
+                document.getElementById('voteTally1').setAttribute('width',data);
+            }
+
+            socket.on('voteTally1', votesProcess1); //client recieves data from voteTally1, passes the data through voteProcess1 variable.
+            
+            socket.on('voteTally2', votesProcess2);		
+        </script>
+	</head>
+	<body>
+		<div class = "header">
+			<h1>Public Voting System</h1>
+		</div>
+		<div class="main">
+			<svg id="svgInner" xmlns="http://www.w3.org/2000/svg" 
+                version="1.1" width = "100%" height = "100%" viewBox="0 0 100% 100%" xml:space="preserve">
+                  <rect id="voteDisplay1" x="0px" y="0" width="50%" height="1" fill="green" fill-opacity="0.5"/>
+                  <rect id="voteDisplay2" x="50%" y="0" width="50%" height="1" fill="red" fill-opacity="0.5"/>
+              </svg>			
+            <div class = "yes">
+				<h3>%YES</h3>
+			</div>
+			<div class = "no">
+				<h3>%NO</h3>
+			</div>	
+		</div>
+		<div class = "que-aside">
+			<h2>Up Next:</h2>
+			<div class = "submissions">
+
+			</div>
+		</div>
+		<div class = "input">
+			<form class = 'form' name="contactForm" id="contactForm"/>
+				<h3>Type in two things you'd like to be compared:</h3>
+				<label for="thing1">Thing 1</label>
+				<p class = 'text'>
+				<input class="option-1" name="thing1" type="text" value="Thing 1"/>
+				</p>
+				<h1>></h1>
+				<label for="thing2">Thing 2</label>
+				<p class = 'text'>
+				<input class="option-2" name="thing2" type="text" value="Thing 2" />
+				</p>
+				<input type="submit" name="submit" value="Submit Form"/>
+			</form>
+			<button class = "button">Button</button>
+		</div>
+		<script src = "main.js" type="text/javascript" ></script>
+	</body>
+</html>
